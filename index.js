@@ -1,9 +1,12 @@
+'use strict';
 const express = require('express');
 const serverless = require('serverless-http');
 const app = express();
-app.use(express.static('public'));
+
+const router = express.Router();
 app.get('/', (req, res) => {
-  res.send("hello")
+  res.send('<h1>Hello from Express.js!</h1>');
 });
 
+module.exports = app;
 module.exports.handler = serverless(app);
