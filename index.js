@@ -1,11 +1,9 @@
 const express = require('express');
+const serverless = require('serverless-http');
 const app = express();
 
 app.get('/', (req, res) => {
-  res.send('Hello, Netlify!');
+  res.send("hello")
 });
 
-const PORT =  3000;
-app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
-});
+module.exports.handler = serverless(app);
